@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"text/template"
 )
@@ -15,5 +16,9 @@ func main() {
 		data := ToDoPage{}
 		tmpl.Execute(w, data)
 	})
-	http.ListenAndServe("localhost:8080", nil)
+	err := http.ListenAndServe("localhost:8080", nil)
+
+	if err != nil {
+		fmt.Println(err)
+	}
 }
