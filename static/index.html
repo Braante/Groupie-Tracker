@@ -12,6 +12,10 @@
         <h1> {{ .CreationDate }}</h1>
         <h1> {{ .FirstAlbum }}</h1>
         <img src= {{ .Image }}>
+        <form method="POST" action="/second">
+            <label><input type="hidden" name="id" value="{{ .Id }}"></label>
+            <input type="submit" value="+"> 
+        </form>
         {{ end }}
     </body>
 </html>
