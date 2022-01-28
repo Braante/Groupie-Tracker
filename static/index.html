@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie-Tracker</title>
+    <link rel="stylesheet"type="text/css" href="static/style.css"/>
 </head>
     <body>
         {{ range .Tab }}
+        <div class="box">
+        <p>
+            <form method="POST" action="/second">
+                <label><input type="hidden" name="id" value="{{ .Id }}"></label>
+                <input type="submit" value="+"> 
+            </form>
+        </p>
         <h1> {{ .Name }}</h1>
-        <h1> {{ .CreationDate }}</h1>
-        <h1> {{ .FirstAlbum }}</h1>
+        
+        <h2> {{ .CreationDate }}</h2>
+        <h2> {{ .FirstAlbum }}</h2>
         <img src= {{ .Image }}>
-        <form method="POST" action="/second">
-            <label><input type="hidden" name="id" value="{{ .Id }}"></label>
-            <input type="submit" value="+"> 
-        </form>
+        </div>
         {{ end }}
     </body>
 </html>
