@@ -7,10 +7,11 @@
     <title>Groupie-Tracker</title>
 </head>
     <body>
-        <p>a</p>
         {{ range .Tab }}
         <h1> {{ .Name }}</h1>
+        <h1> {{ .CreationDate }}</h1>
+        <h1> {{ .FirstAlbum }}</h1>
+        <img src= {{ .Image }}>
         {{ end }}
-        <p>b</p>
     </body>
 </html>

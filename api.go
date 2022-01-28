@@ -17,7 +17,7 @@ type Artist struct {
 	Name         string   `json:"name"`
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
-	FisrtAlbum   string   `json:"firstAlbum"`
+	FirstAlbum   string   `json:"firstAlbum"`
 }
 
 var ArtistsTab []Artist
@@ -35,5 +35,4 @@ func APIRequest() {
 	}
 
 	json.Unmarshal(readOne, &ArtistsTab)
-	fmt.Println(readOne)
 }
