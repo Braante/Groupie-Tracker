@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 func MainHandlersec(w http.ResponseWriter, r *http.Request) {
@@ -18,16 +19,30 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 
 		idcardstr := r.FormValue("id")
 		idcard, _ = strconv.Atoi(idcardstr)
-	}
-	Tab := ArtistsTab
-	CardChoose := Tab[idcard-1]
-	data := Artist{
-		Image:        CardChoose.Image,
-		Name:         CardChoose.Name,
-		Members:      CardChoose.Members,
-		CreationDate: CardChoose.CreationDate,
-		FirstAlbum:   CardChoose.FirstAlbum,
-	}
+		TabA := ArtistsTab
+		CardChoose := TabA[idcard-1]
 
-	tmplsec.Execute(w, data)
+		APIRequestRelation(CardChoose.Link)
+
+		TabR := RelationsTab
+		Relation := TabR
+		date := Relation.DatesLocations
+		var tableauConcerts []string
+		for lieu := range date {
+			h := date[lieu]
+			listdate := strings.Join(h, " ")
+			temp := lieu + ": " + listdate
+			tableauConcerts = append(tableauConcerts, temp)
+		}
+
+		data := Artist{
+			Image:        CardChoose.Image,
+			Name:         CardChoose.Name,
+			Members:      CardChoose.Members,
+			CreationDate: CardChoose.CreationDate,
+			FirstAlbum:   CardChoose.FirstAlbum,
+			Relation:     tableauConcerts,
+		}
+		tmplsec.Execute(w, data)
+	}
 }

@@ -14,5 +14,8 @@
     {{ end }}
     <h1> {{ .CreationDate }}</h1>
     <h1> {{ .FirstAlbum }}</h1>
+    {{ range .Relation }}
+    <h1>{{ . }}</h1>
+    {{ end }}
 </body>
 </html>

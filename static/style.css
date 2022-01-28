@@ -1,18 +1,43 @@
-
+body{
+    background-color: rgb(36, 40, 47);
+}
 .box
 {
-   width: 350px;
-   border: 1px solid black;
-   text-align: justify;
-   padding: 12px;
-   margin: 50px; /* Marge extérieure de 50px */
-   background-color: whitesmoke;
+    width: 350px;
+    border: 1px solid black;
+    text-align: justify;
+    margin: 50px; /* Marge extérieure de 50px */
+    background-color: rgb(255, 180, 41);
+ z-index: 999;
+     padding-top: 4%;
+     padding-bottom: 4%;
+     padding-left:2%;
+     padding-right: 2%;
+     top: 1px;
+     border-radius: 10px;
   
   }
-   
 
-h1 { 
+  .boite 
+    {
+      border: 10px solid black;
+      text-align: center;
+      background-color: whitesmoke;
+      
+    }
+.titre {
+    color: white
+}
+.Rect{
+    flex-wrap: wrap;
+    display: flex;
+}
+h1 {
+    font-size: 80px;
+    font-weight: 800;
     text-align: center;
+    color: rgb(12, 12, 12)
+    
 }
 
 IMG.displayed {
@@ -20,9 +45,18 @@ IMG.displayed {
     margin-left: auto;
     margin-right: auto }
 
+ h2 { 
+    font-family: Courier New;
+    font-size: 50px;
+    text-align: center;
+    color: white
+    }
+    
 h3 { 
+    font-family: Courier New;
     text-align: left;
+    color: white
 }
-p { 
-    margin-left: -97%
+.p { 
+   float: right
 }
