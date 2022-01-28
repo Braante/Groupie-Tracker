@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"groupie"
 	"net/http"
-	"text/template"
 )
 
 type ToDoPage struct {
@@ -12,12 +11,19 @@ type ToDoPage struct {
 }
 
 func main() {
-	tmpl := template.Must(template.ParseFiles("static/index.html"))
+	//tmpl := template.Must(template.ParseFiles("static/index.html"))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		groupie.MainHandler(w, r)
-		data := ToDoPage{}
-		tmpl.Execute(w, data)
+		/*data := ToDoPage{}
+		tmpl.Execute(w, data)*/
 	})
+
+	http.HandleFunc("/second", func(w http.ResponseWriter, r *http.Request) {
+		groupie.MainHandlersec(w, r)
+		/*data := ToDoPage{}
+		tmpl.Execute(w, data)*/
+	})
+
 	err := http.ListenAndServe("localhost:8080", nil)
 
 	if err != nil {
