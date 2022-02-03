@@ -3,7 +3,7 @@ body{
 }
 .box
 {
-    width: 350px;
+    width: 300px;
     border: 1px solid black;
     text-align: justify;
     margin: 50px; /* Marge extérieure de 50px */
@@ -33,10 +33,12 @@ body{
     display: flex;
 }
 h1 {
-    font-size: 80px;
+    font-family: Courier New;
+    font-size: 50px;
     font-weight: 800;
     text-align: center;
-    color: rgb(12, 12, 12)
+    color: rgb(12, 12, 12);
+    
     
 }
 
@@ -46,8 +48,8 @@ IMG.displayed {
     margin-right: auto }
 
  h2 { 
-    font-family: Courier New;
-    font-size: 50px;
+   
+    font-size: 20px;
     text-align: center;
     color: white
     }
