@@ -19,6 +19,7 @@ type Artist struct {
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
 	Link         string   `json:"relations"`
+	Linkloca     string   `json:"locations"`
 	Relation     []string
 }
 
@@ -26,9 +27,15 @@ type Relation struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
+type Location struct {
+	LocationsPlaces []string `json:"locations"`
+}
+
 var ArtistsTab []Artist
 
 var RelationsTab = Relation{}
+
+var LocationTabs = Location{}
 
 func APIRequest() {
 
@@ -55,7 +62,18 @@ func APIRequestRelation(link string) {
 	if errOneR != nil {
 		fmt.Println(errOneR)
 	}
-	test := json.Unmarshal(readOneRela, &RelationsTab)
-	fmt.Println(test)
-	fmt.Println(RelationsTab)
+	json.Unmarshal(readOneRela, &RelationsTab)
+}
+
+func APIRequestLocation() {
+	req, errOne := http.Get("https://groupietrackers.herokuapp.com/api/locations")
+	if errOne != nil {
+		fmt.Println(errOne)
+	}
+
+	readOne, errOneA := ioutil.ReadAll(req.Body)
+	if errOneA != nil {
+		fmt.Println(errOneA)
+	}
+	json.Unmarshal(readOne, &LocationTabs)
 }

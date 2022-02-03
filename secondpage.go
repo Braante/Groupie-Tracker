@@ -24,9 +24,7 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 
 		APIRequestRelation(CardChoose.Link)
 
-		TabR := RelationsTab
-		Relation := TabR
-		date := Relation.DatesLocations
+		date := RelationsTab.DatesLocations
 		var tableauConcerts []string
 		for lieu := range date {
 			h := date[lieu]
