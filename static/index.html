@@ -16,16 +16,16 @@
         <div class="Rect">
         {{ range .Tab }}
         <div class="box">
-        <div class ="p">
-            <form method="POST" action="/second">
-                <label><input type="hidden" name="id" value="{{ .Id }}"></label>
-                <input type="submit" value="+"> 
-            </form>
-        </div>
-        <h1> {{ .Name }}</h1>
-        <h2>formation of the group in {{ .CreationDate }}</h2>
-        <h3>First album release date: {{ .FirstAlbum }}</h3>
-        <IMG class="displayed" img src= {{ .Image }}>
+            <h1> {{ .Name }}</h1>
+            <h2>formation of the group in {{ .CreationDate }}</h2>
+            <h3>First album release date: {{ .FirstAlbum }}</h3>
+            <IMG class="displayed" img src= {{ .Image }}>
+                <div class ="p">
+                    <form method="POST" action="/second">
+                        <label><input type="hidden" name="id" value="{{ .Id }}"></label>
+                        <input class="button" type="submit" value="More information"> 
+                    </form>
+                </div>
         </div>
         {{ end }}
         </div>
