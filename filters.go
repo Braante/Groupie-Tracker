@@ -45,10 +45,6 @@ func filters() {
 		if MaxCreationAlbum < datetonum(ArtistsTab[k].FirstAlbum) {
 			MaxCreationAlbum = datetonum(ArtistsTab[k].FirstAlbum)
 		}
-		allplaces := LocationTabs.LocationsPlaces
-		for lieu := range allplaces {
-			tableauplaces = append(tableauplaces, allplaces[lieu])
-		}
 	}
 	AllLocations = removeDuplicateStr(tableauplaces)
 	NbMembers = []int{1, 2, 3, 4, 5, 6, 7, 8}

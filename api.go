@@ -28,7 +28,9 @@ type Relation struct {
 }
 
 type Location struct {
-	LocationsPlaces []string `json:"locations"`
+	Index []struct {
+		LocationsPlaces []string `json:"locations"`
+	} `json:"index"`
 }
 
 var ArtistsTab []Artist
@@ -76,4 +78,5 @@ func APIRequestLocation() {
 		fmt.Println(errOneA)
 	}
 	json.Unmarshal(readOne, &LocationTabs)
+	//fmt.Println(LocationTabs)
 }

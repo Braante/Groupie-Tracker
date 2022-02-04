@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
+    <script>
+        var disabled=0;
+        function disableEnableFieldA(){
+        
+            if(disabled==0){ //disable
+             document.getElementById('creation').disabled = true;
+               disabled=1; 
+             } 
+            else{  //enable again
+             document.getElementById('creation').disabled = false;
+              disabled=0; 
+            } 
+        }
+        var disabledB=0;
+        function disableEnableFieldB(){
+        
+        if(disabledB==0){ //disable
+         document.getElementById('creationAlbum').disabled = true;
+           disabledB=1; 
+         } 
+        else{  //enable again
+         document.getElementById('creationAlbum').disabled = false;
+          disabledB=0; 
+        } 
+    }
+        </script>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +42,11 @@
 </header>
 <div>
     <form method="POST" action="/">
+        <input type="checkbox" value="ongoing" onclick="disableEnableFieldA()" name="Ongoing" id="ongoing" checked>
         <label for="creation">By Creation Date: </label>
         <input type="range" id="creation" name="creation" value="{{ .MinCreation }}" min="{{ .MinCreation }}" max="{{ .MaxCreation }}" step="1" oninput="this.nextElementSibling.value = this.value">
         <output>{{ .MinCreation }}</output>
+        <input type="checkbox" value="ongoing" onclick="disableEnableFieldB()" name="Ongoing" id="ongoing" checked >
         <label for="creationAlbum">By First Album Date: </label>
         <input type="range" id="creationAlbum" name="creationAlbum" value="{{ .MinCreationAlbum }}" min="{{ .MinCreationAlbum }}" max="{{ .MaxCreationAlbum }}" step="1" oninput="this.nextElementSibling.value = this.value">
         <output>{{ .MinCreationAlbum }}</output>
@@ -32,6 +62,7 @@
         </select>
         <input type="submit" value="filter">
     </form>
+    <a href="/">{{.Hide}}</a>
 </div>
     <body>
         <div class="Rect">
