@@ -33,11 +33,17 @@ type Location struct {
 	} `json:"index"`
 }
 
+type LocationsGroup struct {
+	OneLocationsGroup []string `json:"locations"`
+}
+
 var ArtistsTab []Artist
 
 var RelationsTab = Relation{}
 
 var LocationTabs = Location{}
+
+var LocationsGroupTab = LocationsGroup{}
 
 func APIRequest() {
 
@@ -78,5 +84,17 @@ func APIRequestLocation() {
 		fmt.Println(errOneA)
 	}
 	json.Unmarshal(readOne, &LocationTabs)
-	//fmt.Println(LocationTabs)
+}
+
+func APIRequestLocationOne(link string) {
+	req, errOne := http.Get(link)
+	if errOne != nil {
+		fmt.Println(errOne)
+	}
+
+	readOne, errOneA := ioutil.ReadAll(req.Body)
+	if errOneA != nil {
+		fmt.Println(errOneA)
+	}
+	json.Unmarshal(readOne, &LocationsGroupTab)
 }

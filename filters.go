@@ -31,6 +31,12 @@ func filters() {
 	MaxCreationAlbum = 1000
 	var tableauplaces []string
 	tableauplaces = append(tableauplaces, "")
+	location_id := LocationTabs.Index
+	for k := range location_id {
+		for y := 0; y < len(location_id[k].LocationsPlaces); y++ {
+			tableauplaces = append(tableauplaces, location_id[k].LocationsPlaces[y])
+		}
+	}
 
 	for k := range ArtistsTab {
 		if MinCreation > ArtistsTab[k].CreationDate {

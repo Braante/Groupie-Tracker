@@ -1,5 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie-Tracker</title>
+    <link rel="stylesheet"type="text/css" href="static/style.css"/>
+</head>
+<header>
+    <div class="boite">
+        <div class="titre" ><h1>Groupie-Tracker</h1></div>
+    </div>
+</header>
+    <body>
+        <div>
+            <form method="POST" action="/">
+                <input type="checkbox" value="ongoing" onclick="disableEnableFieldA()" name="Ongoing" id="ongoing" checked accesskey="c">
+                <label for="creation">By Creation Date: </label>
+                <input type="range" id="creation" name="creation" value="{{ .MinCreation }}" min="{{ .MinCreation }}" max="{{ .MaxCreation }}" step="1" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ .MinCreation }}</output>
+                <input type="checkbox" value="ongoing" onclick="disableEnableFieldB()" name="Ongoing" id="ongoing" checked accesskey="a">
+                <label for="creationAlbum">By First Album Date: </label>
+                <input type="range" id="creationAlbum" name="creationAlbum" value="{{ .MinCreationAlbum }}" min="{{ .MinCreationAlbum }}" max="{{ .MaxCreationAlbum }}" step="1" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ .MinCreationAlbum }}</output>
+                <label for="nb_members">By Number of Members: </label>
+                {{ range .NbMembers }}
+                <input type="checkbox" name="nb_members[]" value="{{.}}">{{.}}
+                {{ end }}
+                <label for="locations">By Locations Of Concerts: </label>
+                <select id="locations" name="locations">
+                    {{ range .AllLocations }}
+                    <option value="{{.}}">{{.}}</option>
+                    {{ end }}
+                </select>
+                <input type="submit" value="filter" accesskey="&">
+            </form>
+            <a href="/">{{.Hide}}</a>
+        </div>
+        <h1>{{ .Res }}</h1>
+        <div class="Rect">
+        {{ range .Tab }}
+        <div class="box">
+            <h1> {{ .Name }}</h1>
+            <h2>formation of the group in {{ .CreationDate }}</h2>
+            <h3>First album release date: {{ .FirstAlbum }}</h3>
+            <IMG class="displayed" img src= {{ .Image }}>
+                <div class ="p">
+                    <form method="POST" action="/second">
+                        <label><input type="hidden" name="id" value="{{ .Id }}"></label>
+                        <input class="button" type="submit" value="More information"> 
+                    </form>
+                </div>
+        </div>
+        {{ end }}
+        </div>
+    </body>
 
     <script>
         var disabled=0;
@@ -26,60 +81,6 @@
           disabledB=0; 
         } 
     }
-        </script>
+    </script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groupie-Tracker</title>
-    <link rel="stylesheet"type="text/css" href="static/style.css"/>
-</head>
-<header>
-    <div class="boite">
-        <div class="titre" ><h1>Groupie-Tracker</h1></div>
-    </div>
-</header>
-<div>
-    <form method="POST" action="/">
-        <input type="checkbox" value="ongoing" onclick="disableEnableFieldA()" name="Ongoing" id="ongoing" checked>
-        <label for="creation">By Creation Date: </label>
-        <input type="range" id="creation" name="creation" value="{{ .MinCreation }}" min="{{ .MinCreation }}" max="{{ .MaxCreation }}" step="1" oninput="this.nextElementSibling.value = this.value">
-        <output>{{ .MinCreation }}</output>
-        <input type="checkbox" value="ongoing" onclick="disableEnableFieldB()" name="Ongoing" id="ongoing" checked >
-        <label for="creationAlbum">By First Album Date: </label>
-        <input type="range" id="creationAlbum" name="creationAlbum" value="{{ .MinCreationAlbum }}" min="{{ .MinCreationAlbum }}" max="{{ .MaxCreationAlbum }}" step="1" oninput="this.nextElementSibling.value = this.value">
-        <output>{{ .MinCreationAlbum }}</output>
-        <label for="nb_members">By Number of Members: </label>
-        {{ range .NbMembers }}
-        <input type="checkbox" name="nb_members[]" value="{{.}}">{{.}}
-        {{ end }}
-        <label for="locations">By Locations Of Concerts: </label>
-        <select>
-            {{ range .AllLocations }}
-            <option>{{.}}</option>
-            {{ end }}
-        </select>
-        <input type="submit" value="filter">
-    </form>
-    <a href="/">{{.Hide}}</a>
-</div>
-    <body>
-        <div class="Rect">
-        {{ range .Tab }}
-        <div class="box">
-            <h1> {{ .Name }}</h1>
-            <h2>formation of the group in {{ .CreationDate }}</h2>
-            <h3>First album release date: {{ .FirstAlbum }}</h3>
-            <IMG class="displayed" img src= {{ .Image }}>
-                <div class ="p">
-                    <form method="POST" action="/second">
-                        <label><input type="hidden" name="id" value="{{ .Id }}"></label>
-                        <input class="button" type="submit" value="More information"> 
-                    </form>
-                </div>
-        </div>
-        {{ end }}
-        </div>
-    </body>
 </html>

@@ -1,7 +1,6 @@
 package groupie
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -15,11 +14,13 @@ type Data struct {
 	NbMembers        []int
 	AllLocations     []string
 	Hide             string
+	Res              string
 }
 
 func MainHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("static/index.html"))
 	hide := ""
+	no_res := ""
 	switch r.Method {
 	case "GET":
 		APIRequest()
@@ -29,10 +30,13 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		hide = "reset"
 		creation_date := r.FormValue("creation")
 		creation_album := r.FormValue("creationAlbum")
-		nb_members := r.FormValue("nb_members[]")
+		nb_members := r.Form["nb_members[]"]
 		locations_choose := r.FormValue("locations")
-		fmt.Println("creationdate:", creation_date, "creationalbum:", creation_album, "nbmembers:", nb_members, "locations:", locations_choose)
+		//fmt.Println("creationdate:", creation_date, "creationalbum:", creation_album, "nbmembers:", nb_members, "locations:", locations_choose)
 		ArtistsTab = filtered(creation_date, creation_album, nb_members, locations_choose)
+		if len(ArtistsTab) == 0 {
+			no_res = "Sorry, No results found :("
+		}
 	}
 	data := &Data{
 		Tab:              ArtistsTab,
@@ -43,6 +47,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		NbMembers:        NbMembers,
 		AllLocations:     AllLocations,
 		Hide:             hide,
+		Res:              no_res,
 	}
 
 	tmpl.Execute(w, data)
