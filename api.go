@@ -98,3 +98,16 @@ func APIRequestLocationOne(link string) {
 	}
 	json.Unmarshal(readOne, &LocationsGroupTab)
 }
+
+func Test() {
+	req, errOne := http.Get("https://nominatim.openstreetmap.org/ui/search.html?city=georgia")
+	if errOne != nil {
+		fmt.Println(errOne)
+	}
+
+	readOne, errOneA := ioutil.ReadAll(req.Body)
+	if errOneA != nil {
+		fmt.Println(errOneA)
+	}
+	fmt.Println(readOne)
+}

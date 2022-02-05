@@ -25,6 +25,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		APIRequest()
 		filters()
+		Test()
 
 	case "POST":
 		hide = "reset"

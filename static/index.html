@@ -13,29 +13,39 @@
     </div>
 </header>
     <body>
-        <div>
+        <div class="rectback" >
+            <div class="rect">
             <form method="POST" action="/">
+                <div class="boxe">
                 <input type="checkbox" value="ongoing" onclick="disableEnableFieldA()" name="Ongoing" id="ongoing" checked accesskey="c">
                 <label for="creation">By Creation Date: </label>
                 <input type="range" id="creation" name="creation" value="{{ .MinCreation }}" min="{{ .MinCreation }}" max="{{ .MaxCreation }}" step="1" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ .MinCreation }}</output>
+                </div>
+                <div class="boxe">
                 <input type="checkbox" value="ongoing" onclick="disableEnableFieldB()" name="Ongoing" id="ongoing" checked accesskey="a">
                 <label for="creationAlbum">By First Album Date: </label>
                 <input type="range" id="creationAlbum" name="creationAlbum" value="{{ .MinCreationAlbum }}" min="{{ .MinCreationAlbum }}" max="{{ .MaxCreationAlbum }}" step="1" oninput="this.nextElementSibling.value = this.value">
                 <output>{{ .MinCreationAlbum }}</output>
+                </div>
+                <div class="boxe">
                 <label for="nb_members">By Number of Members: </label>
                 {{ range .NbMembers }}
                 <input type="checkbox" name="nb_members[]" value="{{.}}">{{.}}
                 {{ end }}
+                </div>
+                <div class="boxe">
                 <label for="locations">By Locations Of Concerts: </label>
                 <select id="locations" name="locations">
                     {{ range .AllLocations }}
                     <option value="{{.}}">{{.}}</option>
                     {{ end }}
                 </select>
-                <input type="submit" value="filter" accesskey="&">
+                </div>
+                <input class="button" type="submit" value="filter" accesskey="&">
             </form>
             <a href="/">{{.Hide}}</a>
+        </div>
         </div>
         <h1>{{ .Res }}</h1>
         <div class="Rect">
