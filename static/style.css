@@ -41,6 +41,31 @@ body{
   
   }
 
+  .boxee
+  {
+      align-items: stretch;
+      flex-wrap: wrap;
+      display: inline-flex;
+      border: 1px solid black;
+      text-align: justify;
+      margin-left: 10px; 
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: rgb(255, 180, 41);
+      z-index: 999;
+       padding-top: 1%;
+       padding-bottom: 1%;
+       padding-left:2%;
+       padding-right: 2%;
+       top: 1px;
+       border-radius: 10px;
+    
+    }
+
+  .boxe:hover {
+    background-color: grey;
+  }
+
   .boite 
     {
       border: 10px solid black;
@@ -104,4 +129,12 @@ h3 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .button:hover {
+    background-color: gold;
+  }
+
+  a:hover {
+    background-color: gold;
   }
