@@ -31,6 +31,7 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 			listdate := strings.Join(h, " ")
 			temp := lieu + ": " + listdate
 			tableauConcerts = append(tableauConcerts, temp)
+			APICoord(lieu)
 		}
 
 		data := Artist{

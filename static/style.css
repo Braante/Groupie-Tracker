@@ -62,10 +62,6 @@ body{
     
     }
 
-  .boxe:hover {
-    background-color: grey;
-  }
-
   .boite 
     {
       border: 10px solid black;
@@ -120,7 +116,7 @@ h3 {
 }
 
 .button {
-    
+    transition: 0.3s all;
     background-color: rgb(243, 164, 17); /* Green */
     border: none;
     color: white;
@@ -132,9 +128,19 @@ h3 {
   }
 
   .button:hover {
+    transition: 0.3s all;
     background-color: gold;
+    transform: scale(1.1);
   }
 
+a{
+    transition: 0.3s all;
+    text-decoration: none;
+    color: rgb(95, 62, 0);
+}
+
   a:hover {
-    background-color: gold;
+    transition: 0.3s all;
+    color: rgb(105, 2, 2);
+    transform: scale(1.3);
   }

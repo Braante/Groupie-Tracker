@@ -37,6 +37,13 @@ type LocationsGroup struct {
 	OneLocationsGroup []string `json:"locations"`
 }
 
+type Coord struct {
+	Lat string `json:"lat"`
+	Lon string `json:"lon"`
+}
+
+var CoordTab []Coord
+
 var ArtistsTab []Artist
 
 var RelationsTab = Relation{}
@@ -99,8 +106,8 @@ func APIRequestLocationOne(link string) {
 	json.Unmarshal(readOne, &LocationsGroupTab)
 }
 
-func Test() {
-	req, errOne := http.Get("https://nominatim.openstreetmap.org/ui/search.html?city=georgia")
+func APICoord(link string) {
+	req, errOne := http.Get("https://nominatim.openstreetmap.org/search/" + link + "?format=json&limit=1")
 	if errOne != nil {
 		fmt.Println(errOne)
 	}
@@ -109,5 +116,6 @@ func Test() {
 	if errOneA != nil {
 		fmt.Println(errOneA)
 	}
-	fmt.Println(readOne)
+	json.Unmarshal(readOne, &CoordTab)
+	fmt.Println(CoordTab)
 }
