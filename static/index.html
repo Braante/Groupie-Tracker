@@ -12,7 +12,7 @@
         <div class="titre" ><h1>Groupie-Tracker</h1></div>
     </div>
 </header>
-    <body>
+    <body onload="ResetHide()">
         <div class="rectback" >
             <div class="rect">
             <form method="POST" action="/">
@@ -43,8 +43,10 @@
                 </select>
                 </div>
                 <input class="button" type="submit" value="filter" accesskey="&">
-            </form>
-            <a href="/">{{.Hide}}</a>
+            </form>  
+            <div class="boxe" id="hide">  
+            <a id="hide"href="/">{{.Reset}}</a>
+            </div>
         </div>
         </div>
         <h1>{{ .Res }}</h1>
@@ -68,6 +70,16 @@
 
     <script>
         var disabled=0;
+
+        function ResetHide(){
+            var hide_var = "{{.Reset}}"
+            if (hide_var === ""){
+                document.getElementById('hide').remove();
+            }else{
+                document.getElementById('ButtonID').setAttribute("style","visibility:visible");
+            }
+        }
+
         function disableEnableFieldA(){
         
             if(disabled==0){ //disable

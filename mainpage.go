@@ -13,7 +13,7 @@ type Data struct {
 	MaxCreationAlbum int
 	NbMembers        []int
 	AllLocations     []string
-	Hide             string
+	Reset            string
 	Res              string
 }
 
@@ -28,7 +28,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		Test()
 
 	case "POST":
-		hide = "reset"
+		hide = "Reset"
 		creation_date := r.FormValue("creation")
 		creation_album := r.FormValue("creationAlbum")
 		nb_members := r.Form["nb_members[]"]
@@ -47,7 +47,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		MaxCreationAlbum: MaxCreationAlbum,
 		NbMembers:        NbMembers,
 		AllLocations:     AllLocations,
-		Hide:             hide,
+		Reset:            hide,
 		Res:              no_res,
 	}
 
