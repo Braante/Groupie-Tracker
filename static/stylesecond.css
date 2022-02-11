@@ -2,6 +2,46 @@
     height: 400px;
 }
 
+body{
+    background-color: rgb(36, 40, 47);
+}
+
+.back{
+    transition: 0.4s all;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    font-family: Courier New;
+}
+
+.back:hover{
+    transition: 0.4s all;
+    text-decoration: underline;
+    color: rgb(255, 180, 41);
+}
+
+.boite 
+{
+  border: 10px solid black;
+  text-align: center;
+  background-color: whitesmoke;
+  
+}
+.titre {
+color: white
+}
+
+h1 {
+    font-family: Courier New;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: rgb(12, 12, 12);
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 .biggyboxe {
     flex-wrap: wrap;
     display: inline-flex;
@@ -23,62 +63,17 @@
     align-self: center;
     margin: 0 auto;
     margin-top: 20px;
-    width: 400px;
     text-align: center;
     border: 10px solid black;
     background-color: grey;
+    border-radius: 15px;
 }
-.name {
+.box {
     margin: 0 auto;
     margin-top: 20px;
-    width: 400px;
+    width: auto;
     text-align: center;
     border: 10px solid black;
     background-color: grey;
-}
-
-.membres {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 400px;
-    text-align: center;
-    border: 10px solid black;
-    background-color: grey;
-}
-
-.date {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 400px;
-    text-align: center;
-    border: 10px solid black;
-    background-color: grey;
-}
-
-.album {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 400px;
-    text-align: center;
-    border: 10px solid black;
-    background-color: grey;
-}
-
-.map {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 400px;
-    text-align: center;
-    border: 5px solid black;
-    background-color: grey;
-}
-
-.locations {
-    font-size: 12px;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 700px;
-    text-align: center;
-    border: 10px solid black;
-    background-color: grey;
+    border-radius: 15px;
 }

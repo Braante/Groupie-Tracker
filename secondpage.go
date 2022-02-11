@@ -30,6 +30,9 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 		for lieu := range date {
 			h := date[lieu]
 			listdate := strings.Join(h, " ")
+			lieu = strings.ReplaceAll(lieu, "-", " ")
+			lieu = strings.ReplaceAll(lieu, "_", " ")
+			listdate = strings.ReplaceAll(listdate, "-", "/")
 			temp := lieu + ": " + listdate
 			tableauConcerts = append(tableauConcerts, temp)
 			APICoord(lieu)
@@ -38,12 +41,13 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 			swap = CoordTab[0].Lon
 			tableauLon = append(tableauLon, swap)
 		}
+		Frst_album := strings.ReplaceAll(CardChoose.FirstAlbum, "-", "/")
 		data := Artist{
 			Image:        CardChoose.Image,
 			Name:         CardChoose.Name,
 			Members:      CardChoose.Members,
 			CreationDate: CardChoose.CreationDate,
-			FirstAlbum:   CardChoose.FirstAlbum,
+			FirstAlbum:   Frst_album,
 			Relation:     tableauConcerts,
 			LocationsLat: tableauLat,
 			LocationsLon: tableauLon,

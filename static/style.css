@@ -174,3 +174,7 @@ input[type="checkbox"]:checked {
     outline: none;
     cursor: pointer;
 }
+
+#locations{
+    color: white
+}

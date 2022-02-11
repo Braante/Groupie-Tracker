@@ -27,7 +27,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		filters()
 
 	case "POST":
-		hide = "Reset"
+		hide = "Back to Main Page"
 		creation_date := r.FormValue("creation")
 		creation_album := r.FormValue("creationAlbum")
 		nb_members := r.Form["nb_members[]"]
