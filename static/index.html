@@ -35,8 +35,8 @@
                 {{ end }}
                 </div>
                 <div class="boxe">
-                <label for="locations">By Locations Of Concerts: </label>
-                <select id="locations" name="locations">
+                <label for="locations">By Locations Of Concerts:  </label>
+                <select class="scrolling" id="locations" name="locations">
                     {{ range .AllLocations }}
                     <option value="{{.}}">{{.}}</option>
                     {{ end }}
@@ -69,10 +69,10 @@
     </body>
 
     <script>
-        var disabled=0;
+        let disabled=0;
 
         function ResetHide(){
-            var hide_var = "{{.Reset}}"
+            let hide_var = "{{.Reset}}"
             if (hide_var === ""){
                 document.getElementById('hide').remove();
             }else{
@@ -91,7 +91,7 @@
               disabled=0; 
             } 
         }
-        var disabledB=0;
+        let disabledB=0;
         function disableEnableFieldB(){
         
         if(disabledB==0){ //disable

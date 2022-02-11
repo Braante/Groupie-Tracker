@@ -21,19 +21,23 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 		idcard, _ = strconv.Atoi(idcardstr)
 		TabA := ArtistsTab
 		CardChoose := TabA[idcard-1]
-
 		APIRequestRelation(CardChoose.Link)
-
 		date := RelationsTab.DatesLocations
+		RelationsTab.DatesLocations = nil
 		var tableauConcerts []string
+		var tableauLat []string
+		var tableauLon []string
 		for lieu := range date {
 			h := date[lieu]
 			listdate := strings.Join(h, " ")
 			temp := lieu + ": " + listdate
 			tableauConcerts = append(tableauConcerts, temp)
 			APICoord(lieu)
+			swap := CoordTab[0].Lat
+			tableauLat = append(tableauLat, swap)
+			swap = CoordTab[0].Lon
+			tableauLon = append(tableauLon, swap)
 		}
-
 		data := Artist{
 			Image:        CardChoose.Image,
 			Name:         CardChoose.Name,
@@ -41,6 +45,8 @@ func MainHandlersec(w http.ResponseWriter, r *http.Request) {
 			CreationDate: CardChoose.CreationDate,
 			FirstAlbum:   CardChoose.FirstAlbum,
 			Relation:     tableauConcerts,
+			LocationsLat: tableauLat,
+			LocationsLon: tableauLon,
 		}
 		tmplsec.Execute(w, data)
 	}

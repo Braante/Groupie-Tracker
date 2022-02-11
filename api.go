@@ -21,6 +21,8 @@ type Artist struct {
 	Link         string   `json:"relations"`
 	Linkloca     string   `json:"locations"`
 	Relation     []string
+	LocationsLat []string
+	LocationsLon []string
 }
 
 type Relation struct {
@@ -117,5 +119,4 @@ func APICoord(link string) {
 		fmt.Println(errOneA)
 	}
 	json.Unmarshal(readOne, &CoordTab)
-	fmt.Println(CoordTab)
 }
