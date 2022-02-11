@@ -1,3 +1,84 @@
 #map{
     height: 400px;
 }
+
+.biggyboxe {
+    flex-wrap: wrap;
+    display: inline-flex;
+    border: 1px solid black;
+    text-align: justify;
+    margin-left: 50px; /* Marge extérieure de 50px */
+    margin-right: 50px;
+    margin-top: 20px;
+    background-color: rgb(255, 180, 41);
+ z-index: 999;
+     padding-top: 4%;
+     padding-bottom: 4%;
+     padding-left:2%;
+     padding-right: 2%;
+     top: 1px;
+     border-radius: 10px;
+}
+.photo {
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
+.name {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
+
+.membres {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
+
+.date {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
+
+.album {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
+
+.map {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    text-align: center;
+    border: 5px solid black;
+    background-color: grey;
+}
+
+.locations {
+    font-size: 12px;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 700px;
+    text-align: center;
+    border: 10px solid black;
+    background-color: grey;
+}
