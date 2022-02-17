@@ -17,7 +17,8 @@ body{
      padding-right: 2%;
      top: 1px;
      border-radius: 10px;
-  
+     box-shadow: 12px 12px 2px 1px rgba(235, 164, 10, 0.685);
+     
   }
 
   .boxe
@@ -125,6 +126,7 @@ h3 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer;
   }
 
   .button:hover {
@@ -177,4 +179,12 @@ input[type="checkbox"]:checked {
 
 #locations{
     color: white
+}
+
+#creationAlbum{
+    cursor: pointer;
+}
+
+#creation{
+    cursor: pointer;
 }
