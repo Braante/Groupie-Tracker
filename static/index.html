@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie-Tracker</title>
     <link rel="stylesheet"type="text/css" href="static/style.css"/>
+    <script src="static/data.js"></script>
 </head>
 <header>
     <div class="boite">
@@ -49,9 +50,23 @@
             </div>
         </div>
         </div>
+        <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+              <input id="myInput" type="text" name="searchbar" placeholder="Search . . .">
+            </div>
+            <input type="submit">
+          </form>
         <h1>{{ .Res }}</h1>
         <div class="Rect">
         {{ range .Tab }}
+        <script>
+            total.push("{{.Id}}")
+            total.push("{{.Name}}")
+            total.push("{{.Members}}")
+            total.push("{{.CreationDate}}")
+            total.push("{{.FirstAlbum}}")
+        </script>
+        <script src="static/searchbar.js"></script>
         <div class="box">
             <h1> {{ .Name }}</h1>
             <h2>formation of the group in {{ .CreationDate }}</h2>
