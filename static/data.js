@@ -1,6 +1,6 @@
 
 /* -----   récupération des données   ----- */
-// let total = []
+let total = []
 
 setTimeout(function() {
 console.log(total.length)
@@ -68,6 +68,5 @@ for (let i = 0; i < total.length-1; i++) {
 total = []
 total += bandname + members + creationDate + firstAlbum
 
-console.log(total);
 }, 200);
 
