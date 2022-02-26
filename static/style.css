@@ -127,6 +127,7 @@ h3 {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 8px;
   }
 
   .button:hover {
@@ -187,4 +188,38 @@ input[type="checkbox"]:checked {
 
 #creation{
     cursor: pointer;
+}
+
+.searchbar {
+    height: 10px;
+    transition: 0.3s all;
+    background-color: rgb(187, 184, 180);
+    border:1px black;
+    padding: 15px 32px;
+    text-align: bottom center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.searchbar::placeholder{
+    color: black;
+    font-weight: bold;
+}
+
+.search{
+    background-color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+   padding: 15px;
+}
+
+.sub {
+    margin-top: 10px;
+    margin-left: 80px;
+    width: 100px;
+   padding: 15px;
+   cursor: pointer;
 }
