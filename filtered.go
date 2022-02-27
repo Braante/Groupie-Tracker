@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-func filtered(creation_date string, creation_album string, nb_members []string, locations_choose string) []Artist {
+func filtered(creation_date string, creation_album string, nb_members []string, locations_choose string, name string) []Artist {
 	APIRequest()
 	APIRequestLocation()
 	var final_array []Artist
@@ -13,6 +13,7 @@ func filtered(creation_date string, creation_album string, nb_members []string, 
 	crea_album_nb, _ := strconv.Atoi(creation_album)
 
 	for k := range ArtistsTab {
+		good_name := false
 		good_places := false
 		nb_good_members := false
 		crea_album_temp := datetonum(ArtistsTab[k].FirstAlbum)
@@ -45,7 +46,19 @@ func filtered(creation_date string, creation_album string, nb_members []string, 
 				}
 			}
 		}
-		if crea_date_nb == crea_date_temp && crea_album_nb == crea_album_temp && nb_good_members && good_places {
+		if name == "" {
+			good_name = true
+		}
+		if name == ArtistsTab[k].Name {
+			good_name = true
+		} else {
+			for members := range ArtistsTab[k].Members {
+				if name == ArtistsTab[k].Members[members] {
+					good_name = true
+				}
+			}
+		}
+		if crea_date_nb == crea_date_temp && crea_album_nb == crea_album_temp && nb_good_members && good_places && good_name {
 			final_array = append(final_array, ArtistsTab[k])
 		}
 	}

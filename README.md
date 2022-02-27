@@ -13,7 +13,10 @@ http://localhost:8080/
 ### <ins>Bonuses:</ins>
 - ### Search Bar:
 Options available at the top of the main webpage
-***détaillez***
+Below the filters, you can search any elements of a group to find it : *Name, Members, Creation Date, First Album Date, Locations of concerts*
+After clicking the button "Search", the page refreshed and displaying the corresponding groups.
+Also, a "Back to Main page" button is created for reset the research.
+
 - ### Filters:
 Options available at the top the main webpage like search bar.
 You can choose between 4 different filters:
@@ -26,7 +29,7 @@ This filters can be used simultaneously and sort groups with multiple filters at
 The filters : "*Creation Date*" and "*First Album Date*" can be disabled by the checkbox before them.
 The filters must be applied by clicking on the "*filter*" button at the right of filters.
 After that, the page is refreshed by displaying only the corresponding groups.
-When filter applied, a "Back to Main Page" button is available to reset the filters and display all the groups. 
+Like Research Bar, when filter applied, a "Back to Main Page" button is available to reset the filters and display all the groups. 
 
 - ### Visualizations:
 This bonus is a global improvement and optimization for all webpages.

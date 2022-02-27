@@ -6,8 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie-Tracker</title>
     <link rel="stylesheet"type="text/css" href="static/style.css"/>
-    <script src="static/data.js"></script>
 </head>
+<script>
+    let disabled=0;
+
+    function ResetHide(){
+        let hide_var = "{{.Reset}}"
+        if (hide_var === ""){
+            document.getElementById('hide').remove();
+        }else{
+            document.getElementById('ButtonID').setAttribute("style","visibility:visible");
+        }
+    }
+
+    function disableEnableFieldA(){
+    
+        if(disabled==0){ //disable
+         document.getElementById('creation').disabled = true;
+           disabled=1; 
+         } 
+        else{  //enable again
+         document.getElementById('creation').disabled = false;
+          disabled=0; 
+        } 
+    }
+    let disabledB=0;
+    function disableEnableFieldB(){
+    
+    if(disabledB==0){ //disable
+     document.getElementById('creationAlbum').disabled = true;
+       disabledB=1; 
+     } 
+    else{  //enable again
+     document.getElementById('creationAlbum').disabled = false;
+      disabledB=0; 
+    } 
+}
+</script>
+
 <header>
     <div class="boite">
         <div class="titre" ><h1>Groupie-Tracker</h1></div>
@@ -45,30 +81,34 @@
                 </div>
                 <input class="button" type="submit" value="filter" accesskey="&">
             </form>  
-            <div class="boxee" id="hide">  
+            
+        <div class="search">
+        <form action="/" method="post">
+            <input class="searchbar" type="text" id="searchtemp" name="searchtemp" placeholder="type to search" list="chara">
+            <datalist id="chara">
+                {{range .Tab}}
+                <option value={{ .Name }}>{{.Name}} - artist</option>
+                {{range .Members}}
+                <option value={{.}}>{{.}} - members</option>
+                {{end}}
+                <option value={{.CreationDate}}>{{.CreationDate}} - Creation Date</option>
+                <option value={{.FirstAlbum}}>{{.FirstAlbum}} - first album</option>
+                {{end}}
+                {{range .AllLocations}}
+                <option value={{.}}>{{.}} - locations</option>
+                {{end}}
+            </datalist>
+            <button class="sub button" type="submit" value="Search">Search</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        <div class="boxee" id="hide">  
             <a id="hide"href="/">{{.Reset}}</a>
             </div>
-        <div class="search">
-        <form autocomplete="off" action="/action_page.php">
-            <div class="autocomplete" style="width:300px;">
-              <input class="searchbar" id="myInput" type="text" name="searchbar" placeholder="Search . . .">
-            </div>
-            <input class="sub button" type="submit" value="Search">
-          </form>
-        </div>
-        </div>
-        </div>
         <h1>{{ .Res }}</h1>
         <div class="Rect">
-        {{ range .Tab }}
-        <script>
-            total.push("{{.Id}}")
-            total.push("{{.Name}}")
-            total.push("{{.Members}}")
-            total.push("{{.CreationDate}}")
-            total.push("{{.FirstAlbum}}")
-        </script>
-        <script src="static/searchbar.js"></script>
+            {{ range .Tab }}
         <div class="box">
             <h1> {{ .Name }}</h1>
             <h2>formation of the group in {{ .CreationDate }}</h2>
@@ -84,42 +124,4 @@
         {{ end }}
         </div>
     </body>
-
-    <script>
-        let disabled=0;
-
-        function ResetHide(){
-            let hide_var = "{{.Reset}}"
-            if (hide_var === ""){
-                document.getElementById('hide').remove();
-            }else{
-                document.getElementById('ButtonID').setAttribute("style","visibility:visible");
-            }
-        }
-
-        function disableEnableFieldA(){
-        
-            if(disabled==0){ //disable
-             document.getElementById('creation').disabled = true;
-               disabled=1; 
-             } 
-            else{  //enable again
-             document.getElementById('creation').disabled = false;
-              disabled=0; 
-            } 
-        }
-        let disabledB=0;
-        function disableEnableFieldB(){
-        
-        if(disabledB==0){ //disable
-         document.getElementById('creationAlbum').disabled = true;
-           disabledB=1; 
-         } 
-        else{  //enable again
-         document.getElementById('creationAlbum').disabled = false;
-          disabledB=0; 
-        } 
-    }
-    </script>
-
 </html>
